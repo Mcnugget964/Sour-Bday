@@ -241,7 +241,7 @@ function showForcedModal(title, buttonLabel, onClick) {
 
 function showGateModal() {
   modalContent.innerHTML = `
-    <h2>Do you want to play some word games?</h2>
+    <h2>Do you want to play some brain games?</h2>
     <div class="modal-btn-row">
       <button class="primary-btn" id="gateSureBtn">Sure</button>
       <button class="primary-btn secondary-btn" id="gateNoBtn">No :(</button>
@@ -257,7 +257,7 @@ function showGateModal() {
   });
 
   document.getElementById("gateNoBtn").addEventListener("click", () => {
-    showForcedModal("don't be an oompa loompa!", "Fine, fine", () => {
+    showForcedModal("don't be an oompa loompa !", "Fine, fine", () => {
       showGateModal();
     });
   });
