@@ -219,7 +219,7 @@ modal.addEventListener("click", (e) => {
 orbBtn.addEventListener("click", () => {
   modalContent.innerHTML = `
     <h2>👀</h2>
-    <p>didn't expect you to find this.. well, i will say it was fun having something to think about, and i really enjoyed making this</p>
+    <p>didn't expect you to find this.. well, i will say it was fun having something to think about and i enjoyed making this</p>
     <button class="primary-btn" id="orbModalOk">:)</button>
   `;
   closeModal.style.display = "";
