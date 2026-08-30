@@ -1,7 +1,7 @@
 const SECRET = "HELLO";
 const MAX_GUESSES = 6;
 const WORD_LEN = SECRET.length;
-const NEXT_PAGE = "strands.html";
+const NEXT_PAGE = "connections.html";
 
 const boardEl = document.getElementById("wlBoard");
 const keyboardEl = document.getElementById("wlKeyboard");
@@ -93,6 +93,12 @@ function renderCurrentRow() {
 function submitGuess() {
   if (currentGuess.length < WORD_LEN) {
     setMessage("Not enough letters");
+    shakeRow(guesses.length);
+    return;
+  }
+
+  if (currentGuess !== SECRET && !VALID_WORDS.has(currentGuess.toLowerCase())) {
+    setMessage("Not in word list");
     shakeRow(guesses.length);
     return;
   }
@@ -219,7 +225,7 @@ modal.addEventListener("click", (e) => {
 orbBtn.addEventListener("click", () => {
   modalContent.innerHTML = `
     <h2>👀</h2>
-    <p>didn't expect you to find this.. well, i will say it was fun having something to think about and i enjoyed making this</p>
+    <p>didn't expect you to find this.. well, i will say it was fun having something to think about, and i really enjoyed making this</p>
     <button class="primary-btn" id="orbModalOk">:)</button>
   `;
   closeModal.style.display = "";
@@ -257,7 +263,7 @@ function showGateModal() {
   });
 
   document.getElementById("gateNoBtn").addEventListener("click", () => {
-    showForcedModal("don't be an oompa loompa !", "Fine, fine", () => {
+    showForcedModal("don't be an oompa loompa!", "Fine, fine", () => {
       showGateModal();
     });
   });
